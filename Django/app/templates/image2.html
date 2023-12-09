@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+{% block title %} Image URL {% endblock %}
+{% block content %}
+{% load static %}
+<h1>Image URL Variable</h1>
+{% if var %}
+<img src="{% static 'django.png' %}" class="card-img-top" alt="django">
+{% else %}
+<img src="{% static 'residence.jpg' %}" class="card-img-top" alt="house">
+{% endif %}
+{% endblock %}

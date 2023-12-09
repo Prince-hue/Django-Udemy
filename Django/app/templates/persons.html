@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+{% block title %} Persons {% endblock %}
+{% block content %}
+    <h1>NSS Personals</h1>
+    <h3>Hello {{var}}</h3>
+    <p> {{msg}} </p>
+    <ul>
+        {% for x in tasks %}
+        <li> {{x}} </li>
+        {% endfor %}
+    </ul>
+    
+    {% if ans %}
+        <h1> {{num1}} is greater than {{num2}} </h1>
+    {% else %}
+        <h1> {{num1}} is smaller than {{num2}} </h1>
+    {% endif %}
+{% endblock %}

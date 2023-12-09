@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{% block title %} Images {% endblock %}
+{% block content %}
+{% load static %}
+<h1>Adding Images</h1>
+<div class="card" style="width: 18rem;">
+    <img src="{% static 'django.png' %}" class="card-img-top" alt="django">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+
+  <h2>Creating a grid</h2>
+  <div class="container text-center">
+    <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+    <div class="row">
+      <div class="col-md-8"><img src="{% static 'residence.jpg' %}" class="img-fluid" alt="house"></div>
+      <div class="col-6 col-md-4"><img src="{% static 'django.png' %}" class="img-fluid" alt="django"></div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-6 col-md-3"><img src="{% static 'django.png' %}" class="img-fluid" alt="django"></div>
+    <div class="col-6 col-md-3"><img src="{% static 'django.png' %}" class="img-fluid" alt="django"></div>
+    <div class="col-6 col-md-3"><img src="{% static 'django.png' %}" class="img-fluid" alt="django"></div>
+    <div class="col-6 col-md-3"><img src="{% static 'django.png' %}" class="img-fluid" alt="django"></div>
+  </div>
+{% endblock %}

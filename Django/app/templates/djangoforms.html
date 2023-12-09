@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+{% block title %} Django Forms {% endblock %}
+{% block content %}
+{% load static %}
+<div class = 'col-md-6' style = 'margin: 10vh auto;'>
+    {% if success == True %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert" id="timingMessage">
+        <h4 class="alert-heading">Well done! {{successmsg}}</h4>
+        <p> 
+            Aww yeah, you successfully submitted this important form. 
+            This example text is going to run a bit longer so that you 
+            can see how spacing within an alert works with this kind of content.
+            
+        </p>
+        <hr>
+        <p class="mb-0">
+            Whenever you need to, be sure to use margin utilities to keep things nice and tidy.
+        </p>
+    </div>
+    {% endif %}
+    {% if error == True %}
+    {% for errormsg in errorbox %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" id="timingMessage">
+        <strong>{{errormsg}}</strong>   
+    </div>
+    {% endfor %}
+    {% endif %}
+    <form method = 'POST'>
+        <p class = 'text-muted'>Note * Title must be in CAPITAL format</p>
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type = 'submit' class="btn btn-primary" style = 'margin: 0.5vh auto; display: block;'> Submit </button>
+    </form>
+</div>
+
+
+  <script>
+    // Wait for the DOM to be ready
+    document.addEventListener("DOMContentLoaded", function () {
+      // Get the warning message element
+      var warningMessage = document.getElementById('timingMessage');
+
+      // Set a timeout to hide the warning message after 10 seconds
+      setTimeout(function () {
+        warningMessage.style.display = 'none';
+      }, 10000);
+    });
+  </script>
+{% endblock %}
